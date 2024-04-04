@@ -25,19 +25,21 @@ FROM libros
 INNER JOIN estatus_libro ON libros.id_estatus = estatus_libro.id_estatus 
 INNER JOIN carrera ON libros.id_carrera = carrera.id_carrera 
 WHERE 
-    (libros.no_inventario LIKE '%%' 
-    OR carrera.nombre_carrera LIKE '%%' 
-    OR libros.codigo_barras LIKE '%%' 
-    OR libros.titulo_libro LIKE '%%' 
-    OR libros.autor_libro LIKE '%%' 
-    OR libros.editorial_libro LIKE '%%' 
-    OR libros.anio_libro LIKE '%%' 
-    OR libros.edicion_libro LIKE '%%' 
-    OR (CASE WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' ELSE libros.fecha_libro END) LIKE '%%' 
-    OR estatus_libro.nombre_estatus LIKE '%%')
+    (libros.no_inventario LIKE '%" . $campo . "%'
+    OR carrera.nombre_carrera LIKE '%" . $campo . "%'
+    OR libros.codigo_barras LIKE '%" . $campo . "%'
+    OR libros.titulo_libro LIKE '%" . $campo . "%'
+    OR libros.autor_libro LIKE '%" . $campo . "%'
+    OR libros.editorial_libro LIKE '%" . $campo . "%'
+    OR libros.anio_libro LIKE '%" . $campo . "%'
+    OR libros.edicion_libro LIKE '%" . $campo . "%'
+    OR (CASE WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' ELSE libros.fecha_libro END) LIKE '%" . $campo . "%'
+    OR estatus_libro.nombre_estatus LIKE '%" . $campo . "%')
     AND (libros.id_estatus = 1 OR libros.id_estatus = 2)
 $sLimit;";
 
+// echo $sql;
+// exit;
 
 $resultado = $conn->query($sql);
 $num_rows = $resultado->num_rows;

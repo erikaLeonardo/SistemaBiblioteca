@@ -42,7 +42,7 @@ require 'config/database.php';
                             <a href="./../index.html" class="nav-link fs-6">Inicio</a>
                         </li>
                         <li>
-                            <a href="./../modulo_prestamos/sistema-prestamos.html" class="nav-link fs-6 ">Prestámos</a>
+                            <a href="./../modulo_prestamos/index_prestamos.php" class="nav-link fs-6 ">Prestámos</a>
 
                         </li>
                         <li>

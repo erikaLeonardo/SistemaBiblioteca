@@ -35,11 +35,11 @@
                             <a class="nav-link fs-6 active dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Prestámos </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="./admin-prestamos.html" class="dropdown-item  fs-6">Menú Préstamos</a>
+                                    <a href="./index_prestamos.php" class="dropdown-item  fs-6">Menú Préstamos</a>
                                 </li>
                                 <li><a class="dropdown-item bg-dark text-light" href="./prestamos-vigentes.php">Préstamos Vigentes</a></li>
-                                <li><a class="dropdown-item" href="./prestamos-vencidos.php">Préstamos Vencidos</a></li>
-                                <li><a class="dropdown-item" href="./prestamos-devolucion.php">Historial de Prestamos</a></li>
+                                <li><a class="dropdown-item" href="./index_prestamos_vencidos.php">Préstamos Vencidos</a></li>
+
                             </ul>
                         </div>
                     </li>
