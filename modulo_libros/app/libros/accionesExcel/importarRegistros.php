@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo_excel'])) {
 
-
+    try{
     $archivo = $_FILES['archivo_excel'];
 
     if ($archivo['error'] === UPLOAD_ERR_OK) {
@@ -70,6 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo_excel'])) {
 
         header('Location: ./../index.php');
     } else {
-        echo "Error al subir el archivo.";
+         
     }
+
+}catch(Exception $e){
+    include('./error.html');
+}
+
 }

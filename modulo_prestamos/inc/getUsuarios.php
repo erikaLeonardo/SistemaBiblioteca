@@ -2,8 +2,8 @@
 
 require('./../../../UMB_biblioteca/conexion/database.php');
 
-// $campo = $_POST["campoUsuarios"];
-$campo = '202023097';
+$campo = $_POST["campoUsuarios"];
+// $campo = '202023097';
 
 $sql = "CALL SP_buscarUsuarios('$campo');";
 $query = mysqli_query($conn, $sql);
@@ -32,7 +32,7 @@ while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                 <h6 class='ms-2'>" . $fila["v_matricula"] . "</h6>
                 <div class='ms-2'>" . $fila["v_nombre_carrera"] . "</div>
                 <div class='ms-2'>" . $fila["v_nombre_semestre"] . "</div>
-                <div style='text-align: right;' class='me-2 fw-bold'>" . $fila["v_nombre_estatus_estudiante"] . "</div>
+                <div style='text-align: right;' class='me-2 fw-bold'>" . $fila["v_mensaje"] . "</div>
                 </li>";
         $html .= "</div>";
         $html .= "</div>";

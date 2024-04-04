@@ -10,7 +10,7 @@
                 ¿Desea eliminar este registro?
 
                 <form action="eliminaLibro.php" method="POST">
-                    <input type="text" name="id" id="id">
+                    <input type="hidden" name="id" id="id">
                     <div class="modal-footer">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end justify-content-end mb-2">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>

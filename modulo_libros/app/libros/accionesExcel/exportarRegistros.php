@@ -1,6 +1,6 @@
 <?php
 require('./../../../vendor/autoload.php');
-require ('./../../../../conexion/database.php');
+require('./../../../../conexion/database.php');
 
 use PhpOffice\PhpSpreadsheet\{Spreadsheet, IOFactory};
 
@@ -50,7 +50,6 @@ INNER JOIN carrera ON libros.id_carrera = carrera.id_carrera;
   INNER JOIN estatus_libro ON libros.id_estatus = estatus_libro.id_estatus
   INNER JOIN carrera ON libros.id_carrera = carrera.id_carrera WHERE fecha_libro = '$fecha_don'";
 }
-
 
 $resultado = $conn->query($sql);
 
