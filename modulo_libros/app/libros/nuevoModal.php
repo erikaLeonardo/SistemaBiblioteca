@@ -88,19 +88,6 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="estatus">Estatus:</label>
-                            <select type="text" name="estatus" id="estatus" class="form-select border-umb-color" required>
-                                <option value="">Seleccionar...</option>
-                                <?php while ($row_estatus = $estatus->fetch_assoc()) { ?>
-                                    <option value="<?php echo $row_estatus["id_estatus"]; ?>"><?= $row_estatus["nombre_estatus"] ?></option>
-                                <?php } ?>
-
-                            </select>
-                            <div class="invalid-feedback">
-                                Debe seleccionar una opción.
-                            </div>
-                        </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end justify-content-end mb-2">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-umb-color text-light">Agregar Libro</button>

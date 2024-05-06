@@ -7,18 +7,16 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
                 <div class="container">
                     <div class="row">
 
                         <label class="fw-semibold">Folio:</label>
                         <input type="text" name="folio" id="folio" value="0001222" class="border-0 fs-5 mb-1" readonly>
 
-                        <div class="card">
+                       <div class="card">
 
                             <div class="row">
                                 <div class="col">
-
                                     <ul class="list-group">
                                         <li class="list-group-item bg-primary text-light mt-2" aria-current="true">
                                             <h6><i class="fas fa-book"></i> Datos del libro</h6>
@@ -99,6 +97,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
+     
         </div>
     </div>
 </div>

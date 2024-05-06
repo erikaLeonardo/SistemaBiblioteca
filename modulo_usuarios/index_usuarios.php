@@ -18,6 +18,7 @@ require './../conexion/database.php';
     <link href="./../assets/css/all.min.css" rel="stylesheet">
     <script src="./../assets/js/bootstrap.bundle.min.js"></script>
     <script src="./../assets/js/jquery-3.7.1.min.js"></script>
+    <link href="./assets/css/newfooter.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,7 +38,7 @@ require './../conexion/database.php';
             <div>
                 <ul class="nav col-12 col-lg-12 my-4 justify-content-center my-md-0 text-small">
                     <li>
-                        <a href="./../index.html" class="nav-link fs-6">Inicio</a>
+                        <a href="./../index.php" class="nav-link fs-6">Inicio</a>
                     </li>
                     <li>
                         <a href="./../modulo_prestamos/index_prestamos.php" class="nav-link fs-6 ">Prestámos</a>
@@ -51,10 +52,18 @@ require './../conexion/database.php';
                         <a href="./../modulo_alumnos/index.php" class="nav-link fs-6">Alumnos</a>
                     </li>
                     <li>
-                        <a href="./../modulo_qr/index.html" class="nav-link fs-6">Códigos QR</a>
+                        <a href="./../modulo_qr/index.php" class="nav-link fs-6">Códigos QR</a>
                     </li>
                     <li>
                         <a href="./index_usuarios.php" class="nav-link fs-6 active">Usuarios</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="nav-link fs-6 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['usuario']; ?></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="./../modulo_login/cerrar-sesion.php" class="dropdown-item fs-6">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -151,8 +160,10 @@ require './../conexion/database.php';
                 <div id="nav-paginacion"></div>
             </article>
         </section>
+
 </body>
 </main>
+
 <!-- Esta parte funciona para que muestre en el select de rol -->
 <?php
 $sqlUsuario =

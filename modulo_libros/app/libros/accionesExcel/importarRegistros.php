@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo_excel'])) {
     }
 
 }catch(Exception $e){
-    include('./error.html');
+    include('./error.php');
 }
 
 }

@@ -21,6 +21,8 @@ function generarCodigoQR($contenido, $dir)
     return $filename;
 }
 $directorioQR = 'codigos_qr/';
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -44,12 +46,12 @@ $directorioQR = 'codigos_qr/';
 <div class="container-fluid mb-2">
     <div class="d-flex justify-content-between align-items-center">
         <div class="mb-1 mt-1">
-            <img src="./../modulo_prestamos/img/logo_edomex.png" alt="Gobierno del Estado de México" width="170px" height="50px">
+            <img src="./../assets/img/logo_edomex.png" alt="Gobierno del Estado de México" width="170px" height="50px">
 
         </div>
         <div class="mb-1 mt-1 text-right text-light">
             <!-- Imágenes a la derecha -->
-            <img src="./../modulo_prestamos/img/logo_umb.png" alt="Universidad Mexiquense Del Bicentenario" width="100px" height="50px">
+            <img src="./../assets/img/logo_umb.png" alt="Universidad Mexiquense Del Bicentenario" width="100px" height="50px">
         </div>
     </div>
 </div>
@@ -58,7 +60,7 @@ $directorioQR = 'codigos_qr/';
         <div>
             <ul class="nav col-12 col-lg-12 my-4 justify-content-center my-md-0 text-small">
                 <li>
-                    <a href="./../index.html" class="nav-link fs-6">Inicio</a>
+                    <a href="./../index.php" class="nav-link fs-6">Inicio</a>
                 </li>
                 <li>
                     <a href="./../modulo_prestamos/sistema-prestamos.html" class="nav-link fs-6 ">Prestámos</a>
@@ -72,13 +74,28 @@ $directorioQR = 'codigos_qr/';
                     <a href="./../modulo_alumnos/index.php" class="nav-link fs-6">Alumnos</a>
                 </li>
                 <li>
-                    <a href="./index.html" class="nav-link fs-6 active">Códigos QR</a>
+                    <a href="./index.php" class="nav-link fs-6 active">Códigos QR</a>
                 </li>
+                <?php
+                    if($_SESSION['rol'] == 2){
+                    ?>
                 <li>
                     <a href="./../modulo_usuarios/index_usuarios.php" class="nav-link fs-6">Usuarios</a>
                 </li>
+                <?php
+                    }
+                    ?>
             </ul>
         </div>
+        <!-- Nuevo menú de préstamos -->
+        <div class="dropdown">
+                <a class="nav-link fs-6 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['usuario']; ?></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="./../modulo_login/cerrar-sesion.php" class="dropdown-item fs-6">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
     </div>
 </div>
 
@@ -101,17 +118,11 @@ $directorioQR = 'codigos_qr/';
             </div>
         </div>
         <div class='d-flex justify-content-center'>
-            <a href="./index.html" class="mt-2"> Volver al Menú Principal</a>
+            <a href="./index.php" class="mt-2"> Volver al Menú Principal</a>
         </div>
     </div>
 </div>
 </div>
-
-<footer class="bg-light text-center py-3">
-    <p> <img src="./../modulo_prestamos/img/tesji_logo.jpeg" alt="TESJI" width="50px" height="50px">
-        Tecnológico de Estudios Superiores de Jilotepec, <a href="./acemv.html" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ingeniería en
-            Sistemas Computacionales 2020-2024</a></p>
-</footer>
 </body>
 <?php
 for ($i = $inicio; $i <= $final; $i++) {

@@ -10,10 +10,8 @@
                 <form action="./acciones/concluir_prestamo.php" method="POST">
                     <div class="container">
                         <div class="row">
-
-                            <h5 class="body text-center">¿Quiere terminar el préstamo?</h5>
+                            <h5 class="text-center">¿Quiere terminar el préstamo?</h5>
                             <input type="text" id="id" name="id" hidden>
-
                             <ul class="list-group mb-3">
                                 <li class="list-group-item bg-secondary text-light mt-2" aria-current="true">
                                     <h6><i class="fas fa-book"></i> Datos del libro</h6>
@@ -32,21 +30,17 @@
                                     <input type="text" hidden  name="matricula" id="matricula" readonly>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="text-center">
+                            <div class="text-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
                         <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-check"></i> Terminar</button>
                     </div>
+
+                        </div>
+                    </div>
+                
+                    
                 </form>
-
-
-
-
-
             </div>
-
         </div>
     </div>
-</div>
 </div>

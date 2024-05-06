@@ -2,7 +2,7 @@
 /*
 * Script: Cargar datos de lado del servidor con PHP y MySQL
 */
-
+session_start();
 
 require 'config/database.php';
 
@@ -98,7 +98,9 @@ if ($num_rows > 0) {
         $output['data'] .= '<td>' . $row['nombre_carrera'] . '</td>';
         $output['data'] .= '<td>' . $row['nombre_semestre'] . '</td>';
         $output['data'] .= '<td><a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal"  data-bs-target="#editaModal" data-bs-id=' . $row['id_estudiante'] . '><i class="fa-solid fa-pen-to-square fa-lg"></i></a></td>';
+        if($_SESSION['rol'] == 2){
         $output['data'] .= "<td><a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#eliminaModal' data-bs-id=" . $row['id_estudiante'] . "><i class='fa-solid fa-trash-can fa-lg'></i></a></td>";
+        }
         $output['data'] .= '</tr>';
     }
 } else {

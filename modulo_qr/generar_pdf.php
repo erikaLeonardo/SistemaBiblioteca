@@ -69,6 +69,8 @@ $pdf = new PDF();
 $pdf->AddPage();
 $pdf->Ln(100);
 
+$archivosParaBorrar = array(); // Array para almacenar los nombres de los archivos de imagen
+
 for ($i = $inicio; $i <= $final; $i++) {
   $numero = sprintf("%05d", $i);
   $imageFile = 'codigos_qr/' . $valor . $inputFecha . '-' . $numero . '_a.png';
@@ -82,24 +84,20 @@ for ($i = $inicio; $i <= $final; $i++) {
   $imageName = str_replace('_a.png', '', $imageName);
 
   $pdf->PrintImage($imageFile, $imageWidth, $imageHeight, $imageName);
+
+  $archivosParaBorrar[] = $imageFile; // Agregar el nombre del archivo al array
 }
 
 $pdfFilename = 'codigos_qr_' . $inputFecha . '.pdf';
-$pdf->Output($pdfFilename, 'F');
+$pdf->Output($pdfFilename, 'D');
 
-// Borrar la imagen después de generar el PDF
-for ($i = $inicio; $i <= $final; $i++) {
-  $numero = sprintf("%05d", $i);
-  $imageFile = 'codigos_qr/' . $valor . $inputFecha . '-' . $numero . '_a.png';
-  unlink($imageFile);
+// Limpiar los archivos de imagen después de generar el PDF
+foreach ($archivosParaBorrar as $archivo) {
+  unlink($archivo);
 }
 
 // Descargar el PDF
 header('Content-Disposition: attachment; filename="' . $pdfFilename . '"');
 readfile($pdfFilename);
-
-// Redireccionar a otra página después de descargar el PDF
-// Redireccionar a otra página después de descargar el PDF
-header("Location: otra_pagina.php");
 exit;
 ?>

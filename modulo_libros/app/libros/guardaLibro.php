@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 require './../../../conexion/database.php';
 $no_inv = $conn->real_escape_string($_POST['no_inventario']);
 $carrera_libro = $conn->real_escape_string($_POST['carrera']);
@@ -14,8 +14,8 @@ $estatus_libro = $conn->real_escape_string($_POST['estatus']);
 
 $sql = "CALL SP_insertarLibro(
     '$no_inv','$carrera_libro','$codigo_barras','$titulo_nombre','$autor_libro',
-    '$editorial_libro','$anio','$edicion','$fecha_don_rec', $estatus_libro)";
-    
+    '$editorial_libro','$anio','$edicion','$fecha_don_rec', 1)";
+
 
 $mensaje = mysqli_query($conn, $sql);
 

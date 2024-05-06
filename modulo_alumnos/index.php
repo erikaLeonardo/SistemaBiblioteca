@@ -18,6 +18,7 @@ require 'config/database.php';
     <link href="./../assets/css/all.min.css" rel="stylesheet">
     <script src="./../assets/js/bootstrap.bundle.min.js"></script>
     <script src="./../assets/js/jquery-3.7.1.min.js"></script>
+    <link href="./../assets/css/newfooter.css" rel="stylesheet">
 
 
 </head>
@@ -39,7 +40,7 @@ require 'config/database.php';
                 <div>
                     <ul class="nav col-12 col-lg-12 my-4 justify-content-center my-md-0 text-small">
                         <li>
-                            <a href="./../index.html" class="nav-link fs-6">Inicio</a>
+                            <a href="./../index.php" class="nav-link fs-6">Inicio</a>
                         </li>
                         <li>
                             <a href="./../modulo_prestamos/index_prestamos.php" class="nav-link fs-6 ">Prestámos</a>
@@ -53,10 +54,24 @@ require 'config/database.php';
                             <a href="./../modulo_alumnos/index.php" class="nav-link fs-6 active">Alumnos</a>
                         </li>
                         <li>
-                            <a href="./../modulo_qr/index.html" class="nav-link fs-6">Códigos QR</a>
+                            <a href="./../modulo_qr/index.php" class="nav-link fs-6">Códigos QR</a>
                         </li>
+                        <?php
+                        if($_SESSION['rol'] == 2){
+                        ?>
                         <li>
                             <a href="./../modulo_usuarios/index_usuarios.php" class="nav-link fs-6">Usuarios</a>
+                        </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="nav-link fs-6 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['usuario']; ?></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="./../modulo_login/cerrar-sesion.php" class="dropdown-item fs-6">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -138,7 +153,13 @@ require 'config/database.php';
                         <th class="sort asc">Carrera</th>
                         <th class="sort asc">Semestre</th>
                         <th class="sort asc">Editar</th>
+                        <?php
+                        if($_SESSION['rol'] == 2){
+                        ?>
                         <th class="sort asc">Eliminar</th>
+                        <?php
+                        }
+                        ?>
 
                     </thead>
                     <tbody id="content">

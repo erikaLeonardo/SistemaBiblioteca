@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +11,8 @@
     <link href="./../assets/css/styles.css" rel="stylesheet">
     <link href="./../assets/css/all.min.css" rel="stylesheet">
     <link href="./../assets/css/header.css" rel="stylesheet">
-    <link href="./../assets/css/footer.css" rel="stylesheet">
+    <!-- <link href="./../assets/css/footer.css" rel="stylesheet"> -->
+    <link href="./assets/css/newfooter.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,8 +56,22 @@
                     <li>
                         <a href="./../modulo_qr/index.html" class="nav-link fs-6">Códigos QR</a>
                     </li>
+                    <?php
+                        if($_SESSION['rol'] == 2){
+                    ?>
                     <li>
                         <a href="./../modulo_usuarios/index_usuarios.php" class="nav-link fs-6">Usuarios</a>
+                    </li>
+                    <?php
+                        }
+                    ?>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="nav-link fs-6 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['usuario']; ?></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="./../modulo_login/cerrar-sesion.php" class="dropdown-item fs-6">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

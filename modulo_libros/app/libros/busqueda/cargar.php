@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require('./../../../../conexion/database.php');
 
 
@@ -84,6 +86,7 @@ if ($num_rows > 0) {
         $output['data'] .= '<td class="text-center small">' . $row['edicion_libro'] . '</td>';
         $output['data'] .= '<td class="text-center small">' . $row['fecha_libro'] . '</td>';
         $output['data'] .= '<td class="text-center small">' . $row['estatus'] . '</td>';
+        if($_SESSION['rol'] == 2){
         $output['data'] .=
             '<td>
             <div class="d-flex align-items-center">
@@ -102,6 +105,7 @@ if ($num_rows > 0) {
         
         
         </td>';
+        }
         $html .= '</tr>';
         //C:\xampp\htdocs\modulo_biblioteca\assets\src
     }

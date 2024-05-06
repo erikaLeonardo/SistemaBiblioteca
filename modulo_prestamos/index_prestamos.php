@@ -16,6 +16,7 @@ require('./../../UMB_biblioteca/conexion/database.php');
 
     <script src="./../assets/js/bootstrap.bundle.min.js"></script>
     <script src="./../assets/js/jquery-3.7.1.min.js"></script>
+    <link href="./../assets/css/newfooter.css" rel="stylesheet">
 </head>
 <div class="container-fluid mb-2">
     <div class="d-flex justify-content-between align-items-center">
@@ -34,7 +35,7 @@ require('./../../UMB_biblioteca/conexion/database.php');
         <div>
             <ul class="nav col-12 col-lg-12 my-4 justify-content-center my-md-0 text-small">
                 <li>
-                    <a href="./../index.html" class="nav-link fs-6">Inicio</a>
+                    <a href="./../index.php" class="nav-link fs-6">Inicio</a>
                 </li>
 
                 <li>
@@ -57,10 +58,24 @@ require('./../../UMB_biblioteca/conexion/database.php');
                     <a href="./../modulo_alumnos/index.php" class="nav-link fs-6">Alumnos</a>
                 </li>
                 <li>
-                    <a href="./../modulo_qr/index.html" class="nav-link fs-6">Códigos QR</a>
+                    <a href="./../modulo_qr/index.php" class="nav-link fs-6">Códigos QR</a>
                 </li>
+                <?php
+                    if($_SESSION['rol'] == 2){
+                ?>
                 <li>
                     <a href="./../modulo_usuarios/index_usuarios.php" class="nav-link fs-6">Usuarios</a>
+                </li>
+                <?php
+                    }
+                ?>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link fs-6 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['usuario']; ?></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="./../modulo_login/cerrar-sesion.php" class="dropdown-item fs-6">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>

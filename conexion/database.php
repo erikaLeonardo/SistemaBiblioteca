@@ -2,7 +2,7 @@
 $servidor = "localhost";
 $usuario = "root";
 $contrasenia = "";
-$baseDatos = "finaaaal";
+$baseDatos = "jilotepec_umb_bd";
 
 $conn = mysqli_connect(
     $servidor,
